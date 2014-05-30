@@ -1,0 +1,50 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+#container
+{
+width:200px;
+height:200px;
+}
+#ball
+{
+position:relative;
+width:30px;
+height:30px;
+border-radius:15px;
+background-color:black;
+}
+</style>
+<script>
+	var radius = 50;
+	var timeout=5;
+	var rad=Math.PI/180;
+	var angle = 0;
+	
+function animate()
+{
+	var ball = document.getElementById("ball");
+	if (angle<=360)
+	{	
+		
+		ball.style.top=(100+radius*Math.sin(angle*rad))+'px';
+		ball.style.left=(100+radius*Math.cos(angle*rad))+'px';
+		var speed=2;
+		angle = angle+ speed;
+	}
+	else
+		angle=0;
+		
+	setTimeout(animate,timeout);
+}
+</script>
+</head>
+<body>
+<div id="container">
+<div id="ball">
+<script>animate()</script>
+</div>
+</div>
+</body>
+</html>

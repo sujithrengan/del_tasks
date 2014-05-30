@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<style>
+#container
+{
+width:200px;
+height:200px;
+}
+#ball
+{
+position:relative;
+width:30px;
+height:30px;
+border-radius:15px;
+background-color:black;
+}
+</style>
+<script>
+	var vel=1.5;
+	var timeout=5;
+	var key=1;
+	var rad=Math.PI/180;
+	var pos_x = 0;
+	var pos_y = 0;
+	
+function animate()
+{
+	var ball = document.getElementById("ball");
+	switch(key)
+	{ case 1:
+		if(pos_x<200)
+		{
+			ball.style.left=pos_x+'px';
+        pos_x = pos_x+ vel;
+		}
+		else 
+		{
+			key++;
+		
+		}
+		setTimeout(animate,timeout);
+		break;
+		
+	   case 2:	
+		if(pos_y<200)
+		{
+			ball.style.top=pos_y+'px';
+        pos_y = pos_y+ vel;
+		}
+		else key++;
+		setTimeout(animate,timeout);
+		break;
+	
+	case 3:	
+		if(pos_x>0)
+		{
+			ball.style.left=pos_x+'px';
+        pos_x = pos_x- vel;
+		}
+		else key++;
+		setTimeout(animate,timeout);
+		break;
+		
+		default:
+		if(pos_y>0)
+		{
+			ball.style.top=pos_y+'px';
+        pos_y = pos_y- vel;
+		}
+		else key=1;
+		setTimeout(animate,timeout);
+		
+	}
+	
+	
+		
+	
+}
+</script>
+</head>
+<body>
+<div id="container">
+<div id="ball">
+<script>animate()</script>
+</div>
+</div>
+</body>
+</html>
